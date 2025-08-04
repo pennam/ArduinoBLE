@@ -17,7 +17,7 @@
   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#if !defined(ARDUINO_ARCH_MBED) && !defined(__ZEPHYR__) && !defined(ESP32) && !defined(ARDUINO_SILABS) && !defined(ARDUINO_UNOR4_WIFI) && !defined(__ZEPHYR__) || defined(TARGET_NANO_RP2040_CONNECT) //|| defined(CORE_CM4)
+#if !defined(ARDUINO_ARCH_MBED) && !defined(__ZEPHYR__) && !defined(ESP32) && !defined(ARDUINO_SILABS) && !defined(ARDUINO_UNOR4_WIFI) && !defined(__ZEPHYR__) || defined(TARGET_NANO_RP2040_CONNECT) || defined(ARDUINO_GIGA)
 
 #include "HCIUartTransport.h"
 
@@ -102,7 +102,7 @@ size_t HCIUartTransportClass::write(const uint8_t* data, size_t length)
 #if defined(ARDUINO_AVR_UNO_WIFI_REV2) || defined(ARDUINO_NANO_RP2040_CONNECT)
 HCIUartTransportClass HCIUartTransport(SerialHCI, 119600);
 #else
-HCIUartTransportClass HCIUartTransport(SerialHCI, 912600);
+HCIUartTransportClass HCIUartTransport(SerialHCI, 115200);
 #endif
 HCITransportInterface& HCITransport = HCIUartTransport;
 
